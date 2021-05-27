@@ -1,0 +1,35 @@
+---
+- name: Add the wazuh group
+  ansible.builtin.group:
+    name: wazuh
+    state: present
+
+- name: Add the wazuh user
+  ansible.builtin.user:
+    name: wazuh
+    comment: Wazuh Manager
+    group: wazuh
+
+- name: allow wazuh cluster traffic on 1516/tcp
+  firewalld:
+    port: 1516/tcp
+    permanent: yes
+    immediate: yes
+    zone: public
+    state: enabled
+
+- name: allow wazuh agent traffic on 1514/tcp
+  firewalld:
+    port: 1514/tcp
+    permanent: yes
+    immediate: yes
+    zone: public
+    state: enabled
+
+- name: allow wazuh cluster traffic 1515/tcp
+  firewalld:
+    port: 1515/tcp
+    permanent: yes
+    immediate: yes
+    zone: public
+    state: enabled

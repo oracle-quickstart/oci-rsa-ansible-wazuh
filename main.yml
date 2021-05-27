@@ -1,0 +1,11 @@
+---
+- hosts: all
+  roles: 
+    - role: oci-rsa-ansible-base
+      become: true
+    - role: wazuh-manager
+      become: true
+    - role: geerlingguy.clamav
+      become: true
+    - role: wazuh-ansible/wazuh-ansible/roles/wazuh/ansible-wazuh-manager
+      become: true

@@ -1,0 +1,12 @@
+---
+# handlers file for base
+  - name: Restart chronyd
+    ansible.builtin.service:
+      name: chronyd
+      state: restarted
+    become: true
+  - name: Restart suricata
+    ansible.builtin.service:
+      name: suricata
+      state: restarted
+    become: true
