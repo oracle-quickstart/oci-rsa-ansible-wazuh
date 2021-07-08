@@ -1,0 +1,5 @@
+*.dll
+*.exe
+.DS_Store
+.galaxy-*
+.vscode
