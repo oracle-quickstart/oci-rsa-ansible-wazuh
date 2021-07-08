@@ -9,3 +9,5 @@
       become: true
     - role: wazuh-ansible/wazuh-ansible/roles/wazuh/ansible-wazuh-manager
       become: true
+    - role: wazuh-ansible/wazuh-ansible/roles/wazuh/ansible-filebeat-oss
+      become: true

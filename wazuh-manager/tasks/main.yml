@@ -33,3 +33,78 @@
     immediate: yes
     zone: public
     state: enabled
+
+- name: allow wazuh api traffic 55000/tcp
+  firewalld:
+    port: 55000/tcp
+    permanent: yes
+    immediate: yes
+    zone: public
+    state: enabled
+
+- name: Create local temporary directory for certificates generation
+  file:
+    path: "{{ local_certs_path }}/certs"
+    mode: 0700
+    state: directory
+
+- name: Check if host-key.pem exists
+  stat:
+    path: "{{ local_certs_path }}/certs/{{ filebeat_node_name }}.key"
+  register: host_key
+
+- name: Check if host.csr exists
+  stat:
+    path: "{{ local_certs_path }}/certs/{{ filebeat_node_name }}.csr"
+  register: host_csr
+
+- name: Check if host.pem exists
+  stat:
+    path: "{{ local_certs_path }}/certs/{{ filebeat_node_name }}.pem"
+  register: host_pem
+
+- name: Generate temporary key
+  command: >-
+    openssl genrsa -out {{ local_certs_path }}/certs/{{ item }}-key-temp.pem 2048
+  when:
+    - not host_key.stat.exists
+  with_items:
+    - "{{ filebeat_node_name }}"
+
+- name: Generate key in correct format
+  command: >-
+    openssl pkcs8 -inform PEM -outform PEM
+    -in {{ local_certs_path }}/certs/{{ item }}-key-temp.pem
+    -topk8
+    -nocrypt
+    -v1 PBE-SHA1-3DES
+    -out {{ local_certs_path }}/certs/{{ item }}.key
+  with_items:
+    - "{{ filebeat_node_name }}"
+  when:
+    - not host_key.stat.exists
+
+- name: Generate the csr
+  command: >-
+    openssl req -new
+    -key {{ local_certs_path }}/certs/{{ item }}.key
+    -out {{ local_certs_path }}/certs/{{ item }}.csr
+    -subj "/CN={{ item }}/OU=Ops/O={{ domain_name }}\, Inc./DC={{ domain_name }}"
+  with_items:
+    - "{{ filebeat_node_name }}"
+  when:
+    - not host_csr.stat.exists
+
+- name: Generate pem
+  command: >-
+    openssl x509 -req
+    -in {{ local_certs_path }}/certs/{{ item }}.csr
+    -CA {{ local_certs_path }}/certs/root-ca.pem
+    -CAkey {{ local_certs_path }}/certs/root-ca.key
+    -CAcreateserial -sha256
+    -out {{ local_certs_path }}/certs/{{ item }}.pem
+    -days 365
+  with_items:
+    - "{{ filebeat_node_name }}"
+  when:
+    - not host_pem.stat.exists
