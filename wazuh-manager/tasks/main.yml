@@ -9,7 +9,6 @@
     name: wazuh
     comment: Wazuh Manager
     group: wazuh
-    password: wazuh_password
 
 - name: allow wazuh cluster traffic on 1516/tcp
   firewalld:
