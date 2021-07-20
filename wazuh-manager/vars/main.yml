@@ -33,8 +33,6 @@ filebeat_module_package_name: wazuh-filebeat-0.1.tar.gz
 filebeat_module_package_path: /tmp/
 filebeat_module_destination: /usr/share/filebeat/module
 filebeat_module_folder: /usr/share/filebeat/module/wazuh
-#elasticsearch_security_user: admin
-#elasticsearch_security_password: changeme
 
 # Local path to store the generated certificates (OpenDistro security plugin)
 local_certs_path: "/etc/ssl/local"
