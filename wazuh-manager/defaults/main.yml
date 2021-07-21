@@ -1,2 +1,7 @@
 ---
 # defaults file for oci-rsa-ansible-wazuh
+elasticsearch_security_user: admin
+elasticsearch_security_password: changeme
+wazuh_api_users:
+  - username: "wazuh"
+    password: "wazuh"
