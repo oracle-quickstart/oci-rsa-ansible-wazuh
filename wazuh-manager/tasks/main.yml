@@ -108,3 +108,12 @@
     - "{{ filebeat_node_name }}"
   when:
     - not host_pem.stat.exists
+
+- name: Activate cron job for wazuh log backups
+  ansible.builtin.cron:
+    name: wazuh_log_backups
+    minute: "33"
+    hour: "0"
+    user: root
+    job: "/usr/bin/oci os object bulk-upload --src-dir /var/ossec/logs/archives -bn #{node['backup_bucket_name']} --exclude \"*.json\" --exclude \"*.log\" --no-overwrite --auth=instance_principal"
+  become: true
