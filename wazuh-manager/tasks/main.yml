@@ -115,5 +115,5 @@
     minute: "33"
     hour: "0"
     user: root
-    job: "/usr/bin/oci os object bulk-upload --src-dir /var/ossec/logs/archives -bn #{node['backup_bucket_name']} --exclude \"*.json\" --exclude \"*.log\" --no-overwrite --auth=instance_principal"
+    job: "/usr/bin/oci os object bulk-upload --src-dir /var/ossec/logs/archives -bn {{ wazuh_backup_bucket_name }} --exclude \"*.json\" --exclude \"*.log\" --no-overwrite --auth=instance_principal"
   become: true
