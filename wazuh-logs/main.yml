@@ -1,8 +1,0 @@
----
-- name: Activate cron job for wazuh log backups
-  ansible.builtin.cron:
-    name: wazuh_log_backups
-    minute: "10"
-#    minute: "33"
-    user: root
-    job: "/usr/bin/oci os object bulk-upload --src-dir /var/ossec/logs/archives -bn {{ wazuh_backup_bucket_name }} --exclude \"*.json\" --exclude \"*.log\" --no-overwrite --auth=instance_principal"
