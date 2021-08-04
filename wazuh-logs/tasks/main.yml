@@ -5,4 +5,4 @@
     minute: "33"
     hour: "0"
     user: root
-    job: "/usr/bin/oci os object bulk-upload --src-dir /var/ossec/logs/archives -bn {{ wazuh_backup_bucket_name }} --exclude \"*.json\" --exclude \"*.log\" --object-prefix wazuh_master_logs/ --no-overwrite --auth=instance_principal"
+    job: "/usr/bin/oci os object bulk-upload --src-dir /var/ossec/logs/archives -bn {{ wazuh_backup_bucket_name }} --exclude \"*.json\" --exclude \"*.log\" --object-prefix {{ ansible_hostname }}/ --no-overwrite --auth=instance_principal"
