@@ -13,3 +13,5 @@
       become: true
     - role: wazuh-ansible/wazuh-ansible/roles/wazuh/ansible-filebeat-oss
       become: true
+    - role: wazuh-logs
+      become: true
