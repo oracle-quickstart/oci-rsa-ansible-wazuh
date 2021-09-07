@@ -5,3 +5,5 @@ elasticsearch_security_password: changeme
 wazuh_api_users:
   - username: "wazuh"
     password: "wazuh"
+
+wazuh_node_type: worker
