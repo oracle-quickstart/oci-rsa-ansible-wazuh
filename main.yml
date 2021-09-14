@@ -5,7 +5,7 @@
   roles: 
     - role: oci-rsa-ansible-base
       become: true
-    - role: wazuh-manager
+    - role: wazuh-cluster
       become: true
     - role: geerlingguy.clamav
       become: true
