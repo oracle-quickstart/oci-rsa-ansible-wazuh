@@ -1,5 +1,5 @@
 ## OCI-RSA-ANSIBLE-WAZUH
-This project contains the Wazuh cluster Ansible playbook. This stands up the Wazuh cluster which consists of a Wazuh 
+This stack contains the Wazuh cluster Ansible playbook. This stands up the Wazuh cluster which consists of a Wazuh 
 Master node and two Wazuh Worker nodes. The cluster is used for security monitoring, threat detection, integrity monitoring, 
 and more.
 
@@ -16,27 +16,6 @@ configures Wazuh agent and manager.
 
 ## Ansible Role: OCI-RSA-ANSIBLE-BASE
 More information on the oci-rsa-ansible-base can be found [here](https://bitbucket.oci.oraclecorp.com/projects/RSA/repos/oci-rsa-ansible-base).
-
-
-
-## Code style
-
-
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/oracle-quickstart)
- 
-
-## Branches
-* `main` branch contains the latest code.
-
-
-## Usage
-* Launching the playbook:
-    ```
-    ansible-playbook -i localhost, $OCI_RSA_BASE/${playbook_name}/main.yml --connection=local 
-    ```
-* General usage
-This is used to stand up the Wazuh cluster which consists of a Wazuh Master node and two Wazuh Worker nodes, which is 
-used for security monitoring, threat detection, integrity monitoring, and more.
 
 ## Requirements
 
@@ -59,6 +38,26 @@ A list of other roles hosted on Github:
 * [oci-rsa-ansible-base](https://bitbucket.oci.oraclecorp.com/projects/RSA/repos/oci-rsa-ansible-base): Installs base 
   packages and sets configuration for general security, montoring, and auditing purposes.
     
+
+## Code style
+
+
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/oracle-quickstart)
+ 
+
+## Branches
+* `main` branch contains the latest code.
+
+
+## Usage
+* Launching the playbook:
+    ```
+    ansible-playbook -i localhost, $OCI_RSA_BASE/${playbook_name}/main.yml --connection=local 
+    ```
+* General usage
+This is used to stand up the Wazuh cluster which consists of a Wazuh Master node and two Wazuh Worker nodes, which is 
+used for security monitoring, threat detection, integrity monitoring, and more.
+  
 
 
 Example Playbook
