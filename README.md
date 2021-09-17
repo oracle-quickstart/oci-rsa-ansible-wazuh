@@ -31,7 +31,7 @@ ansible-playbook -i localhost, $OCI_RSA_BASE/${playbook_name}/main.yml --connect
 ## Tech/framework used
 
 <b>Built with</b>
-- [Ansible](https://documentation.wazuh.com/current/deploying-with-ansible/index.html) core 2.11.0 
+- [Ansible](https://documentation.wazuh.com/current/deploying-with-ansible/index.html) 
 
 ## Features
 What makes your project stand out?

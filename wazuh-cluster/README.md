@@ -7,7 +7,10 @@ integrity monitoring, and more.
 
 Requirements
 ------------
+This role will work on:
 
+* Red Hat Oracle Linux
+* Ansible core 2.11.4 
 
 Role Variables
 --------------
@@ -71,12 +74,13 @@ Dependencies
 ------------
 
 A list of other roles hosted on Galaxy:
-* geerlingguy.clamav: Installs ClamAV on RedHat Linux server.
-* wazuh-ansible: These playbooks install and configure Wazuh agent, manager and Elastic Stack
-  - ansible-wazuh-manager: Wazuh Manager role installs and configures Wazuh Manager and Wazuh API
-  - ansible-filebeat-oss: This role installs Filebeat which is used with Wazuh Manager to send events and alerts to Elasticsearch.
-* oci-rsa-ansible-base: Installs base packages and sets configuration for general security, montoring, and auditing purposes.
-    - wazuh-logs: This enables the logging for the Wazuh cluster
+* [geerlingguy.clamav](https://github.com/geerlingguy/ansible-role-clamav): Installs ClamAV on RedHat Linux server.
+* [wazuh-ansible](https://github.com/wazuh/wazuh-ansible): These playbooks install and configure Wazuh agent, manager and Elastic Stack
+  - [ansible-wazuh-manager](https://github.com/wazuh/wazuh-ansible/tree/master/roles/wazuh/ansible-wazuh-manager): Wazuh Manager role installs and configures Wazuh Manager and Wazuh API
+  - [ansible-filebeat-oss](https://github.com/wazuh/wazuh-ansible/tree/master/roles/wazuh/ansible-filebeat-oss): This role installs Filebeat which is used with Wazuh Manager to send events and alerts to Elasticsearch.
+A list of other roles hosted on Github:
+* [oci-rsa-ansible-base](pending...): Installs base packages and sets configuration for general security, montoring, and auditing purposes.
+    - [wazuh-logs](pending...): This enables the logging for the Wazuh cluster
 
 
 Example Playbook
