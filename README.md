@@ -36,7 +36,7 @@ A list of other roles hosted on Galaxy:
 
 A list of other roles hosted on Github:
 * [oci-rsa-ansible-base](https://bitbucket.oci.oraclecorp.com/projects/RSA/repos/oci-rsa-ansible-base): Installs base 
-  packages and sets configuration for general security, montoring, and auditing purposes.
+  packages and sets configuration for general security, monitoring, and auditing purposes.
     
 
 ## Code style
