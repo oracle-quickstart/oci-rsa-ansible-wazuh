@@ -14,7 +14,7 @@ We are using <b>Galaxy</b> which provides pre-packaged units of work known to An
 roles and collections of the <b>wazuh-ansible</b> is referenced in Ansible PlayBooks. This playbook installs and 
 configures Wazuh agent and manager.
 
-## Ansible Role: OCI-RSA-ANSIBLE-BASE
+## Ansible Role: OCI-RSA-Ansible-Base
 More information on the oci-rsa-ansible-base can be found [here](https://bitbucket.oci.oraclecorp.com/projects/RSA/repos/oci-rsa-ansible-base).
 
 ## Requirements
