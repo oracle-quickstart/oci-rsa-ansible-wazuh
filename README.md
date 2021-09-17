@@ -19,8 +19,8 @@ More information on the oci-rsa-ansible-base can be found [here](https://bitbuck
 
 ## Requirements
 
-This project is built with:
-- [Ansible](https://documentation.wazuh.com/current/deploying-with-ansible/index.html) 
+- [Ansible core](https://docs.ansible.com/ansible-core/devel/index.html) >= 2.11.0
+- Oracle Linux >= 7.9
 
 Dependencies
 ------------

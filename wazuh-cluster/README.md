@@ -9,8 +9,9 @@ Requirements
 ------------
 This role will work on:
 
-* Red Hat Oracle Linux
-* Ansible core 2.11.4 
+- [Ansible core](https://docs.ansible.com/ansible-core/devel/index.html) >= 2.11.0
+- Oracle Linux >= 7.9
+
 
 Role Variables
 --------------
