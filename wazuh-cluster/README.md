@@ -1,7 +1,8 @@
-Role Name
+Role: Wazuh-Cluster
 =========
 
-A brief description of the role goes here.
+Installs the Wazuh master and Wazuh worker on the cluster nodes
+
 
 Requirements
 ------------
@@ -10,8 +11,60 @@ Any pre-requisites that may not be covered by Ansible itself or the role should 
 
 Role Variables
 --------------
+```
+wazuh_manager_version: "4.1.5-1"
+```
+Overrides the Wazuh manager version
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+``` 
+wazuh_manager_cluster:
+  disable: 'no'
+  name: 'wazuh'
+  node_name: "{{ ansible_facts['nodename'] }}"
+  node_type: '{{ wazuh_node_type }}'
+  key: 'ugdtAnd7Pi9myP7CVts4qZaZQEQcRYZa'
+  port: '1516'
+  bind_addr: '0.0.0.0'
+  nodes:
+    - 'wazuhmasterinstance.wazuhsubnet.primaryvcn.oraclevcn.com'
+  hidden: 'no'
+```
+Overrides the default configurations of the wazuh manager cluster
+
+```
+filebeat_node_name: '{{ ansible_fqdn }}'
+```
+Overrides the default filebeat node name
+```
+domain_name: 'wazuhsubnet.primaryvcn.oraclevcn.com'
+```
+Domain refers to the Wazuh subnet inside the primary VCN
+```
+filebeat_version: 7.10.2
+```
+Overrides the filebeat version
+```
+wazuh_template_branch: 4.1
+```
+
+```
+filebeat_output_elasticsearch_hosts:
+  - "elasticnode0.{{ domain_name }}"
+  - "elasticnode1.{{ domain_name }}"
+  - "elasticnode2.{{ domain_name }}"
+```
+```
+filebeat_module_package_url: https://packages.wazuh.com/4.x/filebeat
+filebeat_module_package_name: wazuh-filebeat-0.1.tar.gz
+filebeat_module_package_path: /tmp/
+filebeat_module_destination: /usr/share/filebeat/module
+filebeat_module_folder: /usr/share/filebeat/module/wazuh
+```
+
+```
+local_certs_path: "/etc/ssl/local"
+```
+The local path to store the generated certificates (OpenDistro security plugin)
 
 Dependencies
 ------------
