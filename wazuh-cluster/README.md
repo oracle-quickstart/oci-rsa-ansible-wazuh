@@ -1,20 +1,20 @@
 Role: Wazuh-Cluster
 =========
 
-Installs the Wazuh master and Wazuh worker on the cluster nodes
+Installs the Wazuh master and Wazuh worker on the cluster nodes which is used for security monitoring, threat detection, 
+integrity monitoring, and more.
 
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
 
 Role Variables
 --------------
 ```
 wazuh_manager_version: "4.1.5-1"
 ```
-Overrides the Wazuh manager version
+Overrides the Wazuh manager version to 4.1.5-1
 
 ``` 
 wazuh_manager_cluster:
@@ -42,17 +42,18 @@ Domain refers to the Wazuh subnet inside the primary VCN
 ```
 filebeat_version: 7.10.2
 ```
-Overrides the filebeat version
+Overrides the filebeat version to 7.10.2
 ```
 wazuh_template_branch: 4.1
 ```
-
+Overrides the Wazuh template branch to 4.1
 ```
 filebeat_output_elasticsearch_hosts:
   - "elasticnode0.{{ domain_name }}"
   - "elasticnode1.{{ domain_name }}"
   - "elasticnode2.{{ domain_name }}"
 ```
+Sets the output hosts as the ElasticSearch Open Distro nodes
 ```
 filebeat_module_package_url: https://packages.wazuh.com/4.x/filebeat
 filebeat_module_package_name: wazuh-filebeat-0.1.tar.gz
@@ -60,7 +61,7 @@ filebeat_module_package_path: /tmp/
 filebeat_module_destination: /usr/share/filebeat/module
 filebeat_module_folder: /usr/share/filebeat/module/wazuh
 ```
-
+Contains the details of the filebeat package example the url, name of the package etc.
 ```
 local_certs_path: "/etc/ssl/local"
 ```
@@ -69,23 +70,40 @@ The local path to store the generated certificates (OpenDistro security plugin)
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+A list of other roles hosted on Galaxy:
+* geerlingguy.clamav: Installs ClamAV on RedHat Linux server.
+* wazuh-ansible: These playbooks install and configure Wazuh agent, manager and Elastic Stack
+  - ansible-wazuh-manager: Wazuh Manager role installs and configures Wazuh Manager and Wazuh API
+  - ansible-filebeat-oss: This role installs Filebeat which is used with Wazuh Manager to send events and alerts to Elasticsearch.
+* oci-rsa-ansible-base: Installs base packages and sets configuration for general security, montoring, and auditing purposes.
+    - wazuh-logs: This enables the logging for the Wazuh cluster
+
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+An example of how to use the roles:
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+    ---
+    - hosts: all
+      vars_files:
+        - ../extra-variables.yml
+      roles: 
+        - role: oci-rsa-ansible-base
+          become: true
+        - role: wazuh-cluster
+          become: true
+        - role: geerlingguy.clamav
+          become: true
+        - role: wazuh-ansible/wazuh-ansible/roles/wazuh/ansible-wazuh-manager
+          become: true
+        - role: wazuh-ansible/wazuh-ansible/roles/wazuh/ansible-filebeat-oss
+          become: true
+        - role: wazuh-logs
+          become: true
 
-License
--------
+## How to Contribute
+Interested in contributing?  See our contribution [guidelines](CONTRIBUTE.md) for details.
 
-BSD
-
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+## License
+This repository and its contents are licensed under [UPL 1.0](https://opensource.org/licenses/UPL).

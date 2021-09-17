@@ -1,6 +1,5 @@
 ## OCI-RSA-ANSIBLE-WAZUH
-This stack contains the [Wazuh](https://wazuh.com/) cluster Ansible playbook, a descriptive language based on YAML, that 
-make easy to create and describe automation jobs. The cluster consists of a Wazuh master node 
+This stack contains the [Wazuh](https://wazuh.com/) cluster Ansible playbook. The cluster consists of a Wazuh master node 
 and two worker nodes. The Wazuh cluster is used for security monitoring, threat detection, integrity monitoring, and more.
 
 ## Ansible Role: Wazuh Ansible
@@ -10,6 +9,12 @@ configures Wazuh agent and manager.
 
 ## Ansible Role: Wazuh Cluster
 
+## Code style
+
+
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/oracle-quickstart)
+ 
+
 ## Branches
 * `main` branch contains the latest code.
 
@@ -18,13 +23,10 @@ configures Wazuh agent and manager.
 * [Wazuh Ansible documentation](https://documentation.wazuh.com/current/deploying-with-ansible/index.html)
 * [Full documentation](http://documentation.wazuh.com)
 
-## Code style
-If you're using any code style like xo, standard etc. That will help others while contributing to your project. Ex. -
-
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
- 
 ## Launching the playbook
-
+```
+ansible-playbook -i localhost, $OCI_RSA_BASE/${playbook_name}/main.yml --connection=local 
+```
 
 ## Tech/framework used
 
