@@ -1,4 +1,4 @@
-Role: Wazuh-Cluster
+Roles: Wazuh-Cluster
 =========
 
 Installs the Wazuh master and Wazuh worker on the cluster nodes which is used for security monitoring, threat detection, 
@@ -72,16 +72,7 @@ The local path to store the generated certificates (OpenDistro security plugin)
 
 Dependencies
 ------------
-
-A list of other roles hosted on Galaxy:
-* [geerlingguy.clamav](https://github.com/geerlingguy/ansible-role-clamav): Installs ClamAV on RedHat Linux server.
-* [wazuh-ansible](https://github.com/wazuh/wazuh-ansible): These playbooks install and configure Wazuh agent, manager and Elastic Stack
-  - [ansible-wazuh-manager](https://github.com/wazuh/wazuh-ansible/tree/master/roles/wazuh/ansible-wazuh-manager): Wazuh Manager role installs and configures Wazuh Manager and Wazuh API
-  - [ansible-filebeat-oss](https://github.com/wazuh/wazuh-ansible/tree/master/roles/wazuh/ansible-filebeat-oss): This role installs Filebeat which is used with Wazuh Manager to send events and alerts to Elasticsearch.
-A list of other roles hosted on Github:
-* [oci-rsa-ansible-base](pending...): Installs base packages and sets configuration for general security, montoring, and auditing purposes.
-    - [wazuh-logs](pending...): This enables the logging for the Wazuh cluster
-
+None.
 
 Example Playbook
 ----------------
@@ -90,21 +81,10 @@ An example of how to use the roles:
 
     ---
     - hosts: all
-      vars_files:
-        - ../extra-variables.yml
-      roles: 
-        - role: oci-rsa-ansible-base
-          become: true
+      roles:
         - role: wazuh-cluster
           become: true
-        - role: geerlingguy.clamav
-          become: true
-        - role: wazuh-ansible/wazuh-ansible/roles/wazuh/ansible-wazuh-manager
-          become: true
-        - role: wazuh-ansible/wazuh-ansible/roles/wazuh/ansible-filebeat-oss
-          become: true
-        - role: wazuh-logs
-          become: true
+
 
 ## How to Contribute
 Interested in contributing?  See our contribution [guidelines](CONTRIBUTE.md) for details.
