@@ -41,7 +41,6 @@ A list of other roles hosted on Github:
 
 ## Code style
 
-
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/oracle-quickstart)
  
 
@@ -55,8 +54,8 @@ A list of other roles hosted on Github:
     ansible-playbook -i localhost, $OCI_RSA_BASE/${playbook_name}/main.yml --connection=local 
     ```
 * General usage
-This is used to stand up the Wazuh cluster which consists of a Wazuh Master node and two Wazuh Worker nodes, which is 
-used for security monitoring, threat detection, integrity monitoring, and more.
+  - This is used to stand up the Wazuh cluster which consists of a Wazuh Master node and two Wazuh Worker nodes. 
+  - Used for security monitoring, threat detection, integrity monitoring, and more.
   
 
 
