@@ -5,7 +5,8 @@ and more.
 
 ## Ansible Role: wazuh-cluster
 We developed this role to stand the Wazuh Cluster based on the configurations and requirements. Installs the Wazuh Manager 
-and Wazuh Worker on the target instances. More information on the wazuh-cluster can be found [here](/wazuh-cluster/README.md).
+and Wazuh Worker on the target instances. More information on the wazuh-cluster role and role variables can be found 
+[here](/wazuh-cluster/README.md).
 
 ## Ansible Role: wazuh-logs
 Enables the logging for the Wazuh Cluster.

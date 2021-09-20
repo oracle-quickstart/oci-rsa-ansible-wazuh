@@ -37,12 +37,12 @@ wazuh_manager_cluster:
   hidden: 'no'
 ```
 
-Overrides the default filebeat node name
+Overrides the default filebeat node name.
 ```
 filebeat_node_name: '{{ ansible_fqdn }}'
 ```
 
-Domain refers to the Wazuh subnet inside the primary VCN
+Domain refers to the Wazuh subnet inside the primary VCN.
 ```
 domain_name: 'wazuhsubnet.primaryvcn.oraclevcn.com'
 ```
@@ -57,7 +57,7 @@ Overrides the Wazuh template branch to 4.1
 wazuh_template_branch: 4.1
 ```
 
-Sets the output hosts as the ElasticSearch Open Distro nodes
+Sets the output hosts as the ElasticSearch Open Distro nodes.
 ```
 filebeat_output_elasticsearch_hosts:
   - "elasticnode0.{{ domain_name }}"
@@ -74,7 +74,7 @@ filebeat_module_destination: /usr/share/filebeat/module
 filebeat_module_folder: /usr/share/filebeat/module/wazuh
 ```
 
-The local path to store the generated certificates (OpenDistro security plugin)
+The local path to store the generated certificates (OpenDistro security plugin).
 ```
 local_certs_path: "/etc/ssl/local"
 ```
