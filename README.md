@@ -1,86 +1,89 @@
 ## OCI-RSA-ANSIBLE-WAZUH
 This stack contains the Wazuh cluster Ansible playbook. This stands up the Wazuh cluster which consists of a Wazuh 
-Master node and two Wazuh Worker nodes. The cluster is used for security monitoring, threat detection, integrity monitoring, 
+Manager node and two Wazuh Worker nodes. The cluster is used for security monitoring, threat detection, integrity monitoring, 
 and more.
 
-## Ansible Role: Wazuh-Cluster
-More information on the Wazuh-Cluster can be found [here](/wazuh-cluster/README.md).
+## Ansible Role: wazuh-cluster
+We developed this role to stand the Wazuh Cluster based on the configurations and requirements. Installs the Wazuh Manager 
+and Wazuh Worker on the target instances. More information on the wazuh-cluster can be found [here](/wazuh-cluster/README.md).
 
-## Ansible Role: Wazuh-Logs
-This enables the logging for the Wazuh cluster.
+## Ansible Role: wazuh-logs
+Enables the logging for the Wazuh Cluster.
 
-## Ansible Role: Wazuh Ansible
+## Ansible Role: wazuh-ansible
 We are using <b>Galaxy</b> which provides pre-packaged units of work known to Ansible as roles and collections. Content from 
-roles and collections of the <b>wazuh-ansible</b> is referenced in Ansible PlayBooks. This playbook installs and 
+roles and collections of the <b>wazuh-ansible</b> are referenced in oci-rsa-ansible-wazuh. This playbook installs and 
 configures Wazuh agent and manager.
 
-## Ansible Role: OCI-RSA-Ansible-Base
-More information on the oci-rsa-ansible-base can be found [here](https://bitbucket.oci.oraclecorp.com/projects/RSA/repos/oci-rsa-ansible-base).
+## Ansible Role: oci-rsa-ansible-base
+Installs base packages and sets configuration for general security, monitoring, and auditing purposes. More information 
+on the oci-rsa-ansible-base can be found [here]().
 
 ## Requirements
 
 - [Ansible core](https://docs.ansible.com/ansible-core/devel/index.html) >= 2.11.0
-- Oracle Autonomous Linux >= 7.9
+- [Oracle Autonomous Linux](https://www.oracle.com/linux/autonomous-linux/) >= 7.9
 
 Dependencies
 ------------
 
 A list of other roles hosted on Galaxy:
-* [geerlingguy.clamav](https://github.com/geerlingguy/ansible-role-clamav): Installs ClamAV on RedHat Linux server.
-* [wazuh-ansible](https://github.com/wazuh/wazuh-ansible): These playbooks install and configure Wazuh agent, manager and 
+* [geerlingguy.clamav](https://github.com/geerlingguy/ansible-role-clamav): Installs ClamAV on Linux server.
+* [wazuh-ansible](https://github.com/wazuh/wazuh-ansible): These playbooks install and configure Wazuh Agent, Manager and 
   Elastic Stack
-  - [ansible-wazuh-manager](https://github.com/wazuh/wazuh-ansible/tree/master/roles/wazuh/ansible-wazuh-manager): Wazuh
-    Manager role installs and configures Wazuh Manager and Wazuh API
+  - [ansible-wazuh-manager](https://github.com/wazuh/wazuh-ansible/tree/master/roles/wazuh/ansible-wazuh-manager): This role 
+    installs and configures Wazuh Manager and Wazuh API
   - [ansible-filebeat-oss](https://github.com/wazuh/wazuh-ansible/tree/master/roles/wazuh/ansible-filebeat-oss): This role 
     installs Filebeat which is used with Wazuh Manager to send events and alerts to Elasticsearch.
 
 A list of other roles hosted on Github:
 * [oci-rsa-ansible-base](): Installs base 
   packages and sets configuration for general security, monitoring, and auditing purposes.
-    
-
-## Code style
-
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/oracle-quickstart)
- 
 
 ## Branches
 * `main` branch contains the latest code.
 
-
 ## Usage
-* Launching the playbook:
-    ```
-    ansible-playbook -i localhost, $OCI_RSA_BASE/${playbook_name}/main.yml --connection=local 
-    ```
-* General usage
-  - This is used to stand up the Wazuh cluster which consists of a Wazuh Master node and two Wazuh Worker nodes. 
-  - Used for security monitoring, threat detection, integrity monitoring, and more.
-  
+This playbook deploys the Wazuh cluster which consists of a Wazuh Manager node and two Wazuh Worker nodes.
 
+### Bundling Playbook Dependencies:
+To run this playbook, this repository needs to be bundled up with the required collections and roles and uploaded to an 
+object storage bucket as a tgz file.
 
-Example Playbook
-----------------
+Assuming you have cloned the repo and are in the repository root:
 
-An example of how to use the roles:
+Command to install the ansible roles
+```
+ansible-galaxy install --ignore-certs -r requirements.yml -p ./.galaxy-roles
+```
+Command to bundle up the playbook
+```
+tar -czf $playbook_zip $playbook_name
+```
+Here the `playbook_zip` variable is `target_directory/playbook_name`
 
-    ---
-    - hosts: all
-      vars_files:
-        - ../extra-variables.yml
-      roles: 
-        - role: oci-rsa-ansible-base
-          become: true
-        - role: wazuh-cluster
-          become: true
-        - role: geerlingguy.clamav
-          become: true
-        - role: wazuh-ansible/wazuh-ansible/roles/wazuh/ansible-wazuh-manager
-          become: true
-        - role: wazuh-ansible/wazuh-ansible/roles/wazuh/ansible-filebeat-oss
-          become: true
-        - role: wazuh-logs
-          become: true
+### Launching the Playbook:
+After terraform provisions the instances, the bootstrapping script pulls the appropriate tar file from object store and 
+runs the playbook.
+
+Because we are not using ansible inventory to run the playbooks, the bootstrapping script runs the following command to 
+launch the playbook directly on each of the hosts locally.
+
+```
+ansible-playbook -i localhost, $OCI_RSA_BASE/${playbook_name}/main.yml --connection=local
+```
+
+An `extra_variables.yml` file is required to set the variables below. These values are randomly generated by terraform 
+and sent to the instances during bootstrapping. Here the Wazuh password, OpenDistro elasticsearch security password, Wazuh
+bucket name and the node type can be overridden by the user.
+```
+wazuh_api_users:
+  - username: "wazuh"
+    password: "{}"
+elasticsearch_security_password: "{}"
+wazuh_backup_bucket_name: "{}"
+wazuh_node_type: "{}"
+```
 
 ## Documentation
 

@@ -1,4 +1,4 @@
-# Contributing to OCI CAAS PCI E-commerce Quick Start Template
+# Contributing to OCI-RSA-ANSIBLE-WAZUH Ansible Playbook
 
 Oracle welcomes contributions to this repository from anyone.
 
