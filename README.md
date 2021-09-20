@@ -20,7 +20,7 @@ More information on the oci-rsa-ansible-base can be found [here](https://bitbuck
 ## Requirements
 
 - [Ansible core](https://docs.ansible.com/ansible-core/devel/index.html) >= 2.11.0
-- Oracle Linux >= 7.9
+- Oracle Autonomous Linux >= 7.9
 
 Dependencies
 ------------
@@ -35,7 +35,7 @@ A list of other roles hosted on Galaxy:
     installs Filebeat which is used with Wazuh Manager to send events and alerts to Elasticsearch.
 
 A list of other roles hosted on Github:
-* [oci-rsa-ansible-base](https://bitbucket.oci.oraclecorp.com/projects/RSA/repos/oci-rsa-ansible-base): Installs base 
+* [oci-rsa-ansible-base](): Installs base 
   packages and sets configuration for general security, monitoring, and auditing purposes.
     
 
