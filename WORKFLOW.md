@@ -16,7 +16,7 @@ Assuming you have cloned the repository and are in the repository root:
 
 Command to install the Ansible roles
 ```
-ansible-galaxy install -r requirements.yml -p ./.galaxy-roles
+ansible-galaxy install -r requirements.yml -p ./roles
 ```
 
 Command to bundle up the playbook. Here the `playbook_zip` variable is `target_dir/playbook_name`

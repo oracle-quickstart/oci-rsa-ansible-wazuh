@@ -12,8 +12,8 @@ and Wazuh worker on the target instances. More information on the wazuh-cluster 
 Enables the logging for the Wazuh Cluster.
 
 ## Ansible Role: wazuh-ansible
-We are using <b>Galaxy</b> which provides pre-packaged units of work known to Ansible as roles and collections. Content from 
-roles and collections of the <b>wazuh-ansible</b> are referenced in oci-rsa-ansible-wazuh. This playbook installs and 
+We are using **Galaxy** which provides pre-packaged units of work known to Ansible as roles and collections. Content from 
+roles and collections of the **wazuh-ansible** are referenced in oci-rsa-ansible-wazuh. This playbook installs and 
 configures Wazuh agent and manager.
 
 ## Ansible Role: oci-rsa-ansible-base
