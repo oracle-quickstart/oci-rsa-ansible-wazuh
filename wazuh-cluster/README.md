@@ -1,8 +1,8 @@
 ROLE: WAZUH-CLUSTER
 =========
 
-Installs the Wazuh [Wazuh](https://documentation.wazuh.com/current/index.html) Manager and Wazuh [Wazuh](https://documentation.wazuh.com/current/index.html)
-Worker on the cluster nodes which is used for security monitoring, threat detection, 
+Installs the Wazuh [Wazuh](https://documentation.wazuh.com/current/index.html) manager and Wazuh
+worker on the cluster nodes which is used for security monitoring, threat detection, 
 integrity monitoring, and more.
 
 
@@ -68,7 +68,7 @@ filebeat_output_elasticsearch_hosts:
   - "elasticnode2.{{ domain_name }}"
 ```
 
-Sets the details of the filebeat package example the url, name of the package etc.
+Sets the details of the Filebeat package; For example the url, name of the package etc.
 ```
 filebeat_module_package_url: https://packages.wazuh.com/4.x/filebeat
 filebeat_module_package_name: wazuh-filebeat-0.1.tar.gz
