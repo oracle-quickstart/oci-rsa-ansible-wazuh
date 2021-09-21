@@ -45,7 +45,7 @@ A list of other roles hosted on Github:
 * `main` branch contains the latest code.
 
 ## Usage
-This playbook deploys the Wazuh cluster which consists of a Wazuh Manager node and two Wazuh Worker nodes.
+This playbook deploys the Wazuh cluster which consists of a Wazuh manager node and two Wazuh worker nodes.
 
 To run this playbook, this repository needs to be bundled up with the required collections and roles and uploaded to an 
 object storage bucket as a tgz file.
@@ -54,7 +54,7 @@ Assuming you have cloned the repo and are in the repository root:
 
 Command to install the ansible roles
 ```
-ansible-galaxy install --ignore-certs -r requirements.yml -p ./.galaxy-roles
+ansible-galaxy install -r requirements.yml -p ./.galaxy-roles
 ```
 
 Command to bundle up the playbook. Here the `playbook_zip` variable is `target_dir/playbook_name`
@@ -95,7 +95,7 @@ wazuh_node_type: "${}"
 * [Full documentation](http://documentation.wazuh.com)
 
 ## The Team
-This repository was developed by the Oracle OCI Regulatory Solutions and Automation(RSA) team.
+This repository was developed by the Oracle OCI Regulatory Solutions and Automation (RSA) team.
 
 ## How to Contribute
 Interested in contributing?  See our contribution [guidelines](CONTRIBUTE.md) for details.
