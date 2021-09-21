@@ -8,6 +8,7 @@ integrity monitoring, and more.
 
 Requirements
 ------------
+
 This role will work on:
 
 - [Ansible core](https://docs.ansible.com/ansible-core/devel/index.html) >= 2.11.0
@@ -16,6 +17,7 @@ This role will work on:
 
 Role Variables
 --------------
+
 Overrides the Wazuh manager version to 4.1.5-1
 ```
 wazuh_manager_version: "4.1.5-1"
@@ -83,12 +85,14 @@ local_certs_path: "/etc/ssl/local"
 
 Dependencies
 ------------
+
 None
 
 Example Playbook
 ----------------
 
-An example of how to use the roles:
+Use the oci-rsa-ansible-base role before to install the required software. An `extra-variables.yml` file can also be used 
+to pass in other variables. An example of how to use the role:
 
     ---
     - hosts: all
@@ -108,9 +112,6 @@ An example of how to use the roles:
         - role: wazuh-logs
           become: true
 
-
-## How to Contribute
-Interested in contributing?  See our contribution [guidelines](CONTRIBUTE.md) for details.
-
 ## License
+
 This repository and its contents are licensed under [UPL 1.0](https://opensource.org/licenses/UPL).

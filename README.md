@@ -3,6 +3,8 @@ This stack contains the [Wazuh](https://documentation.wazuh.com/current/index.ht
 up the Wazuh cluster which consists of a Wazuh Manager node and two Wazuh Worker nodes. The cluster is used for security 
 monitoring, threat detection, integrity monitoring, and more.
 
+This repository was developed by the Oracle OCI Regulatory Solutions and Automation(RSA) team.
+
 ## Ansible Role: wazuh-cluster
 We developed this role to stand the Wazuh Cluster based on the configurations and requirements. Installs the Wazuh Manager 
 and Wazuh Worker on the target instances. More information on the wazuh-cluster role and role variables can be found 
@@ -57,7 +59,7 @@ Command to install the ansible roles
 ansible-galaxy install --ignore-certs -r requirements.yml -p ./.galaxy-roles
 ```
 
-Command to bundle up the playbook
+Command to bundle up the playbook. Here the `playbook_zip` variable is `target_dir/playbook_name`
 ```
 tar -czf $playbook_zip $playbook_name
 ```
@@ -66,8 +68,6 @@ Command to upload the tar file to object storage
 ```
 oci os object put -ns $namespace -bn $bucketname --file $playbook_zip --name ${playbook_name}.tgz
 ```
-
-Here the `playbook_zip` variable is `target_dir/playbook_name`
 
 After terraform provisions the instances, the bootstrapping script pulls the appropriate tar file from object store and 
 runs the playbook.
@@ -95,6 +95,9 @@ wazuh_node_type: "${}"
 
 * [Wazuh Ansible documentation](https://documentation.wazuh.com/current/deploying-with-ansible/index.html)
 * [Full documentation](http://documentation.wazuh.com)
+
+## The Team
+This repository was developed by the Oracle OCI Regulatory Solutions and Automation(RSA) team.
 
 ## How to Contribute
 Interested in contributing?  See our contribution [guidelines](CONTRIBUTE.md) for details.
