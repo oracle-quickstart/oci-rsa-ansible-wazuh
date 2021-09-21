@@ -1,7 +1,8 @@
 ROLE: WAZUH-CLUSTER
 =========
 
-Installs the Wazuh Manager and Wazuh Worker on the cluster nodes which is used for security monitoring, threat detection, 
+Installs the Wazuh [Wazuh](https://documentation.wazuh.com/current/index.html) Manager and Wazuh [Wazuh](https://documentation.wazuh.com/current/index.html)
+Worker on the cluster nodes which is used for security monitoring, threat detection, 
 integrity monitoring, and more.
 
 
