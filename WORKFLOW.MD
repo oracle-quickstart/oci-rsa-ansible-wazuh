@@ -1,12 +1,15 @@
 ## Team Workflow
-Here's how our team uses this stack and deploys it using Terraform. We also use OCI Object Storage to upload the playbook 
-that we bundle and pull it down during bootstrapping in Terraform. Following are the steps used by our bootstrapping script 
-to deploy this stack.
+Our team's recommended method of deployment is driven by Terraform. The Ansible playbooks are bundled and uploaded to OCI 
+Object Storage. These bundles are then pulled down from the bucket during instance bootstrapping in Terraform. 
+
+Here is a link to our [Terraform Stack](PLACEHOLDER)
+
+Following are the steps used by our bootstrapping script to deploy this stack.
 
 To run this playbook manually, this repository needs to first be bundled up with the dependencies and roles and uploaded to an 
 object storage bucket as a `tgz` file.
 
-Note: The instructions below use variables. Please check you've set all the required variables or that you've replaced them 
+Note: The instructions below use variables. Please check you have set all the required variables or that you have replaced them 
 with your values.
 
 Assuming you have cloned the repository and are in the repository root:
