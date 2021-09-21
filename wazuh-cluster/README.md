@@ -82,6 +82,26 @@ The local path to store the generated certificates (OpenDistro security plugin).
 local_certs_path: "/etc/ssl/local"
 ```
 
+Default Variables
+------------
+
+Open Distro ElasticSearch security username and password
+```
+elasticsearch_security_user: admin
+elasticsearch_security_password: changeme
+```
+
+Wazuh API username and password are by default set to `wazuh`
+```
+wazuh_api_users:
+  - username: "wazuh"
+    password: "wazuh"
+```
+
+The node type variable in Wazuh Manager cluster is by default set to `worker`.
+```
+wazuh_node_type: worker
+```
 
 Dependencies
 ------------
