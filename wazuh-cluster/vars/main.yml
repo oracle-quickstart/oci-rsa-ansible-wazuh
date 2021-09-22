@@ -1,5 +1,7 @@
 ---
 # vars file for oci-rsa-ansible-wazuh
+ansible_playbook_name: "oci-rsa-ansible-wazuh"
+
 wazuh_manager_version: "4.1.5-1"
 
 ## Cluster
