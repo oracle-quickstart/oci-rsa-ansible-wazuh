@@ -123,8 +123,6 @@ to pass in other variables. An example of how to use the role:
           become: true
         - role: wazuh-cluster
           become: true
-        - role: geerlingguy.clamav
-          become: true
         - role: wazuh-ansible/wazuh-ansible/roles/wazuh/ansible-wazuh-manager
           become: true
         - role: wazuh-ansible/wazuh-ansible/roles/wazuh/ansible-filebeat-oss

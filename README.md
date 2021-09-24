@@ -29,7 +29,6 @@ Dependencies
 ------------
 
 A list of other roles hosted on Galaxy:
-* [geerlingguy.clamav](https://github.com/geerlingguy/ansible-role-clamav): Installs ClamAV on Linux server.
 * [wazuh-ansible](https://github.com/wazuh/wazuh-ansible): These playbooks install and configure Wazuh Agent, Manager and 
   Elastic Stack
   - [ansible-wazuh-manager](https://github.com/wazuh/wazuh-ansible/tree/master/roles/wazuh/ansible-wazuh-manager): This role 
