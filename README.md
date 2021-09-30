@@ -61,6 +61,7 @@ wazuh_api_users:
 elasticsearch_security_password: "${}"
 wazuh_backup_bucket_name: "${}"
 wazuh_node_type: "${}"
+wazuh_cluster_key: "${}"
 ```
 This is a wrapper which configures the Wazuh cluster. To deploy the infrastructure and configure the cluster on instance nodes,
 our team recommends a specific workflow. Detailed explanation of the recommended workflow can be found [here](WORKFLOW.md). 

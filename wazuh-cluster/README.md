@@ -32,7 +32,7 @@ wazuh_manager_cluster:
   name: 'wazuh'
   node_name: "{{ ansible_facts['nodename'] }}"
   node_type: '{{ wazuh_node_type }}'
-  key: 'ugdtAnd7Pi9myP7CVts4qZaZQEQcRYZa'
+  key: '1111222233334444aaaabbbbcccdddd'
   port: '1516'
   bind_addr: '0.0.0.0'
   nodes:
