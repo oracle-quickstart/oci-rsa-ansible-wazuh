@@ -7,3 +7,6 @@ wazuh_api_users:
     password: "wazuh"
 
 wazuh_node_type: worker
+
+# Override with a 32-character key, using the same key through the cluster
+wazuh_cluster_key: 1111222233334444aaaabbbbcccdddd
