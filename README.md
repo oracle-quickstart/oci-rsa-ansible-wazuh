@@ -18,7 +18,7 @@ configures Wazuh agent and manager.
 
 ## Ansible Role: oci-rsa-ansible-base
 Installs base packages and sets configuration for general security, monitoring, and auditing purposes. More information 
-on the oci-rsa-ansible-base can be found [here](PLACEHOLDER).
+on the oci-rsa-ansible-base can be found [here](https://github.com/oracle-quickstart/oci-rsa-ansible-base).
 
 ## Requirements
 
@@ -37,7 +37,7 @@ A list of other roles hosted on Galaxy:
     installs Filebeat which is used with Wazuh Manager to send events and alerts to Elasticsearch.
 
 A list of other roles hosted on Github:
-* [oci-rsa-ansible-base](PLACEHOLDER): Installs base 
+* [oci-rsa-ansible-base](https://github.com/oracle-quickstart/oci-rsa-ansible-base): Installs base 
   packages and sets configuration for general security, monitoring, and auditing purposes.
 
 ## Branches
