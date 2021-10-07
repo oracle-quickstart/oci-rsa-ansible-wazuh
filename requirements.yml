@@ -3,4 +3,4 @@ roles:
   - name: wazuh-ansible
     src: git+https://github.com/wazuh/wazuh-ansible.git
   - name: oci-rsa-ansible-base
-    src: git+ssh://git@bitbucket.oci.oraclecorp.com:7999/rsa/oci-rsa-ansible-base.git
+    src: git+https://github.com/oracle-quickstart/oci-rsa-ansible-base.git

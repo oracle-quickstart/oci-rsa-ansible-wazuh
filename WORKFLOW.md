@@ -2,7 +2,7 @@
 Our team's recommended method of deployment is driven by Terraform. The Ansible playbooks are bundled and uploaded to OCI 
 Object Storage. These bundles are then pulled down from the bucket during instance bootstrapping in Terraform. 
 
-Here is a link to our [Terraform Stack](PLACEHOLDER)
+Here is a link to our [Terraform Stack](https://github.com/oracle-devrel/terraform-oci-rsa-wazuh)
 
 Following are the steps used by our bootstrapping script to deploy this stack.
 
